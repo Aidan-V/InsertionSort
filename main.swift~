@@ -1,0 +1,33 @@
+
+var sortStrings = [String]()
+func readLine() -> [String] {
+    var line : String?
+    repeat {
+        line = readLine()
+        if line != nil {
+            sortStrings.append(line!)
+        }
+    } while line != nil
+    return sortStrings
+}
+
+func insertionSort(sortStrings: [String]) -> [String] {
+
+    var sortingIntegers = readLine()
+
+    for i in 1..<sortingIntegers.count {
+        var j = i
+        while j > 0 && sortingIntegers[j - 1] > sortingIntegers[j] { 
+            let tmp = sortingIntegers[j]
+            sortingIntegers[j] = sortingIntegers[j - 1]
+            sortingIntegers[j - 1] = tmp
+            j = j - 1
+        }
+    }
+    return sortingIntegers
+}
+let sortedIntegers = insertionSort(sortStrings: sortStrings)
+
+for element in sortedIntegers {
+    print(element)
+} 
